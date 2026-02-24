@@ -32,7 +32,7 @@
 #' pal2 <- scales::pal_brewer(palette = "Set2")
 #' blended_pal <- blend(pal1, pal2, blend = "overlay")
 #'
-#' @export
+#' @noRd
 blend <- function(..., blend) {
 
   # Check that blend was provided
@@ -251,6 +251,69 @@ lighten <- function(...) {
 #'
 darken <- function(...) {
   blend(..., blend = "darken")
+}
+
+#' Blend colours using overlay mode
+#' @inheritParams multiply
+#' @export
+#' @examples
+#' overlay("#FFA600FF", "#8991A1FF")
+overlay <- function(...) {
+  blend(..., blend = "overlay")
+}
+
+#' Blend colours using hard light mode
+#' @inheritParams multiply
+#' @export
+#' @examples
+#' hard_light("#FFA600FF", "#8991A1FF")
+hard_light <- function(...) {
+  blend(..., blend = "hard_light")
+}
+
+#' Blend colours using soft light mode
+#' @inheritParams multiply
+#' @export
+#' @examples
+#' soft_light("#FFA600FF", "#8991A1FF")
+soft_light <- function(...) {
+  blend(..., blend = "soft_light")
+}
+
+#' Blend colours using colour burn mode
+#' @inheritParams multiply
+#' @export
+#' @examples
+#' colour_burn("#FFA600FF", "#8991A1FF")
+colour_burn <- function(...) {
+  blend(..., blend = "colour_burn")
+}
+
+#' Blend colours using colour dodge mode
+#' @inheritParams multiply
+#' @export
+#' @examples
+#' colour_dodge("#FFA600FF", "#8991A1FF")
+colour_dodge <- function(...) {
+  blend(..., blend = "colour_dodge")
+}
+
+#' Blend colours using difference mode
+#' @inheritParams multiply
+#' @export
+#' @examples
+#' difference("#FFA600FF", "#8991A1FF")
+difference <- function(...) {
+  blend(..., blend = "difference")
+}
+
+#' Blend colours using exclusion mode
+#' @inheritParams multiply
+#' @export
+#' @examples
+#' exclusion("#FFA600FF", "#8991A1FF")
+exclusion <- function(...) {
+  blend(..., blend = "exclusion")
 }
 
 #' Internal multiply blend implementation
