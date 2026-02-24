@@ -1,0 +1,5 @@
+^LICENSE\.md$
+^paletteblend\.Rproj$
+^\.Rproj\.user$
+^[.]?air[.]toml$
+^\.vscode$
