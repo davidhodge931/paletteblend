@@ -1,27 +1,35 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # paletteblend
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
-The objective of paletteblend is to provide functions to blend colours,
-palettes or palette functions using common blend modes, such as multiply
-and screen.
+The objective of paletteblend is to provide functions to blend colours, palettes or palette functions using common blend modes, such as multiply and screen.
 
 ## Installation
 
-Install from CRAN, or development version from
-[GitHub](https://github.com/).
+Install from CRAN, or development version from [GitHub](https://github.com/).
 
-``` r
+```r
 install.packages("ggwidth") 
 pak::pak("davidhodge931/ggwidth")
 ```
 
-``` r
+```{r setup, message=FALSE}
 library(paletteblend)
 library(dplyr)
 library(jumble)
@@ -31,12 +39,9 @@ blended <- multiply(teal, orange)
 scales::show_col(c(teal, orange, blended), ncol = 3)
 ```
 
-<img src="man/figures/README-setup-1.png" alt="" width="100%" />
+The below image provides the multiply output in column 4 and screen output in column 5 of columns 1 and 2.
 
-The below image provides the multiply output in column 4 and screen
-output in column 5 of columns 1 and 2.
-
-``` r
+```{r}
 tidyr::crossing(col1 = jumble::jumble, col2 = jumble::jumble) |>
   rowwise() |>
   mutate(black = "black") |>
@@ -48,4 +53,3 @@ tidyr::crossing(col1 = jumble::jumble, col2 = jumble::jumble) |>
   scales::show_col(ncol = 5, labels = FALSE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />

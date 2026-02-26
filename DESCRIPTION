@@ -14,3 +14,8 @@ Imports:
     purrr,
     rlang,
     scales
+Suggests: 
+    dplyr,
+    jumble,
+    tidyr
+URL: https://davidhodge931.github.io/paletteblend/
