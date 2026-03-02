@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# paletteblend
+# paletteblend <a href="https://davidhodge931.github.io/paletteblend/"><img src="man/figures/logo.png" align="right" height="139" alt="paletteblend website" /></a>
 
 <!-- badges: start -->
 
