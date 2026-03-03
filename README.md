@@ -11,9 +11,8 @@ status](https://www.r-pkg.org/badges/version/paletteblend)](https://CRAN.R-proje
 version](https://davidhodge931.r-universe.dev/paletteblend/badges/version)](https://davidhodge931.r-universe.dev/paletteblend)
 <!-- badges: end -->
 
-The objective of paletteblend is to provide functions to blend colours,
-palettes or palette functions using common blend modes, such as multiply
-and screen.
+The objective of paletteblend is to blend colours, palettes or palette
+functions using blend modes, such as multiply and screen.
 
 ## Installation
 

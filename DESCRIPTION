@@ -4,7 +4,7 @@ Version: 0.0.1
 Authors@R: 
     person("David", "Hodge", , "davidhodge931@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-3868-7501"))
-Description: Blend colours and palettes.
+Description: Blend colours and palettes using blend modes such as multiply and screen.
 License: MIT + file LICENSE
 URL: https://davidhodge931.github.io/paletteblend/
 BugReports: https://github.com/davidhodge931/paletteblend/issues

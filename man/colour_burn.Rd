@@ -2,20 +2,20 @@
 % Please edit documentation in R/blend.R
 \name{colour_burn}
 \alias{colour_burn}
-\title{Blend colours using colour burn mode}
+\title{Blend colours and palettes using colour burn mode}
 \usage{
 colour_burn(...)
 }
 \arguments{
-\item{...}{Either one or two colour arguments:
+\item{...}{Either one or two colour/palette arguments:
 \itemize{
-\item If one argument: the colour is blended with itself
+\item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
 Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
 }}
 }
 \description{
-Blend colours using colour burn mode
+Blend colours and palettes using colour burn mode
 }
 \examples{
 colour_burn("#FFA600FF", "#8991A1FF")

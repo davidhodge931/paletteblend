@@ -2,20 +2,20 @@
 % Please edit documentation in R/blend.R
 \name{overlay}
 \alias{overlay}
-\title{Blend colours using overlay mode}
+\title{Blend colours and palettes using overlay mode}
 \usage{
 overlay(...)
 }
 \arguments{
-\item{...}{Either one or two colour arguments:
+\item{...}{Either one or two colour/palette arguments:
 \itemize{
-\item If one argument: the colour is blended with itself
+\item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
 Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
 }}
 }
 \description{
-Blend colours using overlay mode
+Blend colours and palettes using overlay mode
 }
 \examples{
 overlay("#FFA600FF", "#8991A1FF")

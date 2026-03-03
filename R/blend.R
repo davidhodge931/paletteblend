@@ -1,15 +1,10 @@
-#' Blend colours using various blend modes
+#' Blend colours and palettes
 #'
 #' @description
-#' Blends colours using specified blend modes with proper alpha compositing.
-#' Supports multiple blend modes commonly used in graphics applications.
-#'
-#' For the most common blend modes, consider using the convenience functions
-#' [multiply()] and [screen()] which don't require specifying
-#' the blend argument.
+#' Blends colours and palettes using blend modes such as [multiply()] and [screen()]..
 
-#' @param ... Either one or two colour arguments:
-#'   - If one argument: the colour is blended with itself
+#' @param ... Either one or two colour/palette arguments:
+#'   - If one argument: the colour or palette is blended with itself
 #'   - If two arguments: the first is blended with the second
 #'   Each argument can be a character vector of colours or a `scales::pal_*()` function
 #' @param blend Character string specifying the blend mode. Must be one of:
@@ -66,12 +61,12 @@ blend <- function(..., blend) {
     col <- dots[[1]]
     col2 <- dots[[2]]
   } else {
-    stop("blend() accepts at most 2 colour arguments, got ", length(dots))
+    stop("blend() accepts at most 2 colour/palette arguments, got ", length(dots))
   }
 
   # Validate inputs are not NULL
   if (is.null(col) || is.null(col2)) {
-    stop("Colour arguments cannot be NULL")
+    stop("colour/palette arguments cannot be NULL")
   }
 
   # Handle different input combinations
@@ -154,14 +149,14 @@ blend <- function(..., blend) {
   }
 }
 
-#' Blend colours using multiply mode
+#' Blend colours and palettes using multiply mode
 #'
 #' @description
 #' Darkens colours by multiplying them together. Creates darker, more saturated results.
 #' Useful for creating shadows, darkening backgrounds, or adding depth.
 #'
-#' @param ... Either one or two colour arguments:
-#'   - If one argument: the colour is blended with itself
+#' @param ... Either one or two colour/palette arguments:
+#'   - If one argument: the colour or palette is blended with itself
 #'   - If two arguments: the first is blended with the second
 #'   Each argument can be a character vector of colours or a `scales::pal_*()` function
 #' @return Character vector of blended colours or a blending function.
@@ -177,14 +172,14 @@ multiply <- function(...) {
   blend(..., blend = "multiply")
 }
 
-#' Blend colours using screen mode
+#' Blend colours and palettes using screen mode
 #'
 #' @description
 #' Lightens colours by inverting, multiplying, then inverting again. Creates brighter results.
 #' Useful for creating highlights, lightening backgrounds, or adding luminosity.
 #'
-#' @param ... Either one or two colour arguments:
-#'   - If one argument: the colour is blended with itself
+#' @param ... Either one or two colour/palette arguments:
+#'   - If one argument: the colour or palette is blended with itself
 #'   - If two arguments: the first is blended with the second
 #'   Each argument can be a character vector of colours or a `scales::pal_*()` function
 #' @return Character vector of blended colours or a blending function.
@@ -200,15 +195,15 @@ screen <- function(...) {
   blend(..., blend = "screen")
 }
 
-#' Blend colours using lighten mode
+#' Blend colours and palettes using lighten mode
 #'
 #' @description
 #' Lightens colours by selecting the lighter of two colour values for each RGB channel.
 #' Creates brighter results by preserving the lightest areas from both colours.
 #' Useful for creating highlights, preventing over-darkening, or combining light elements.
 #'
-#' @param ... Either one or two colour arguments:
-#'   - If one argument: the colour is blended with itself
+#' @param ... Either one or two colour/palette arguments:
+#'   - If one argument: the colour or palette is blended with itself
 #'   - If two arguments: the first is blended with the second
 #'   Each argument can be a character vector of colours or a `scales::pal_*()` function
 #' @return Character vector of blended colours or a blending function.
@@ -221,15 +216,15 @@ lighten <- function(...) {
   blend(..., blend = "lighten")
 }
 
-#' Blend colours using darken mode
+#' Blend colours and palettes using darken mode
 #'
 #' @description
 #' Darkens colours by selecting the darker of two colour values for each RGB channel.
 #' Creates darker results by preserving the darkest areas from both colours.
 #' Useful for creating shadows, preventing over-lightening, or combining dark elements.
 #'
-#' @param ... Either one or two colour arguments:
-#'   - If one argument: the colour is blended with itself
+#' @param ... Either one or two colour/palette arguments:
+#'   - If one argument: the colour or palette is blended with itself
 #'   - If two arguments: the first is blended with the second
 #'   Each argument can be a character vector of colours or a `scales::pal_*()` function
 #' @return Character vector of blended colours or a blending function.
@@ -242,7 +237,7 @@ darken <- function(...) {
   blend(..., blend = "darken")
 }
 
-#' Blend colours using overlay mode
+#' Blend colours and palettes using overlay mode
 #' @inheritParams multiply
 #' @export
 #' @examples
@@ -251,7 +246,7 @@ overlay <- function(...) {
   blend(..., blend = "overlay")
 }
 
-#' Blend colours using hard light mode
+#' Blend colours and palettes using hard light mode
 #' @inheritParams multiply
 #' @export
 #' @examples
@@ -260,7 +255,7 @@ hard_light <- function(...) {
   blend(..., blend = "hard_light")
 }
 
-#' Blend colours using soft light mode
+#' Blend colours and palettes using soft light mode
 #' @inheritParams multiply
 #' @export
 #' @examples
@@ -269,7 +264,7 @@ soft_light <- function(...) {
   blend(..., blend = "soft_light")
 }
 
-#' Blend colours using colour burn mode
+#' Blend colours and palettes using colour burn mode
 #' @inheritParams multiply
 #' @export
 #' @examples
@@ -278,7 +273,7 @@ colour_burn <- function(...) {
   blend(..., blend = "colour_burn")
 }
 
-#' Blend colours using colour dodge mode
+#' Blend colours and palettes using colour dodge mode
 #' @inheritParams multiply
 #' @export
 #' @examples
@@ -287,7 +282,7 @@ colour_dodge <- function(...) {
   blend(..., blend = "colour_dodge")
 }
 
-#' Blend colours using difference mode
+#' Blend colours and palettes using difference mode
 #' @inheritParams multiply
 #' @export
 #' @examples
@@ -296,7 +291,7 @@ difference <- function(...) {
   blend(..., blend = "difference")
 }
 
-#' Blend colours using exclusion mode
+#' Blend colours and palettes using exclusion mode
 #' @inheritParams multiply
 #' @export
 #' @examples

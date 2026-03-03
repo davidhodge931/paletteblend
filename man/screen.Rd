@@ -2,14 +2,14 @@
 % Please edit documentation in R/blend.R
 \name{screen}
 \alias{screen}
-\title{Blend colours using screen mode}
+\title{Blend colours and palettes using screen mode}
 \usage{
 screen(...)
 }
 \arguments{
-\item{...}{Either one or two colour arguments:
+\item{...}{Either one or two colour/palette arguments:
 \itemize{
-\item If one argument: the colour is blended with itself
+\item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
 Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
 }}
