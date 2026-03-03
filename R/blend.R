@@ -37,10 +37,7 @@ blend <- function(..., blend) {
 
   # Check that blend was provided
   if (missing(blend)) {
-    rlang::abort(c(
-      "Argument `blend` is required",
-      "i" = "Please specify a blend mode, e.g., 'multiply', 'screen', 'overlay', etc."
-    ))
+    stop("Argument `blend` is required. Please specify a blend mode, e.g., 'multiply', 'screen', 'overlay', etc.")
   }
 
   # Match the blend argument
@@ -52,17 +49,9 @@ blend <- function(..., blend) {
   # Get the input arguments
   dots <- list(...)
 
-  if (purrr::some(dots, rlang::is_null)) {
-    return(NULL)
-  }
-
   # Check if the first argument is a ggplot2 annotate
   if (length(dots) > 0 && ggplot2::is_layer(dots[[1]])) {
-    rlang::abort(c(
-      "Cannot blend ggplot2 annotates with this function",
-      "i" = "This function blends colours, not graphical annotates.",
-      "i" = "Did you mean to use `ggblend::blend()` instead?"
-    ))
+    stop("paletteblend cannot blend ggplot2 layers")
   }
 
   # Validate number of arguments
@@ -81,7 +70,7 @@ blend <- function(..., blend) {
   }
 
   # Validate inputs are not NULL
-  if (rlang::is_null(col) || rlang::is_null(col2)) {
+  if (is.null(col) || is.null(col2)) {
     stop("Colour arguments cannot be NULL")
   }
 
@@ -330,13 +319,13 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1)) || length(dim(rgb1)) == 1) {
+  if (is.null(dim(rgb1)) || length(dim(rgb1)) == 1) {
     rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   }
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2)) || length(dim(rgb2)) == 1) {
+  if (is.null(dim(rgb2)) || length(dim(rgb2)) == 1) {
     rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   }
   rgb2 <- rgb2 / 255
@@ -400,13 +389,13 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1)) || length(dim(rgb1)) == 1) {
+  if (is.null(dim(rgb1)) || length(dim(rgb1)) == 1) {
     rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   }
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2)) || length(dim(rgb2)) == 1) {
+  if (is.null(dim(rgb2)) || length(dim(rgb2)) == 1) {
     rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   }
   rgb2 <- rgb2 / 255
@@ -473,11 +462,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels
@@ -542,13 +531,13 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1)) || length(dim(rgb1)) == 1) {
+  if (is.null(dim(rgb1)) || length(dim(rgb1)) == 1) {
     rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   }
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2)) || length(dim(rgb2)) == 1) {
+  if (is.null(dim(rgb2)) || length(dim(rgb2)) == 1) {
     rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   }
   rgb2 <- rgb2 / 255
@@ -615,11 +604,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels
@@ -687,11 +676,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels
@@ -759,11 +748,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels
@@ -834,11 +823,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels
@@ -909,11 +898,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels
@@ -990,11 +979,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels
@@ -1056,11 +1045,11 @@ exclusion <- function(...) {
 
   # Convert to RGB matrices - handle single colour case
   rgb1 <- grDevices::col2rgb(col1, alpha = TRUE)
-  if (rlang::is_null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb1))) rgb1 <- matrix(rgb1, nrow = 4, ncol = 1)
   rgb1 <- rgb1 / 255
 
   rgb2 <- grDevices::col2rgb(col2, alpha = TRUE)
-  if (rlang::is_null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
+  if (is.null(dim(rgb2))) rgb2 <- matrix(rgb2, nrow = 4, ncol = 1)
   rgb2 <- rgb2 / 255
 
   # Extract alpha channels

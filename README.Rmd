@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # paletteblend <a href="https://davidhodge931.github.io/paletteblend/"><img src="man/figures/logo.png" align="right" height="139" alt="paletteblend website" /></a>
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/paletteblend)](https://CRAN.R-project.org/package=paletteblend)
+[![R-universe version](https://davidhodge931.r-universe.dev/paletteblend/badges/version)](https://davidhodge931.r-universe.dev/paletteblend)
 <!-- badges: end -->
 
 The objective of paletteblend is to provide functions to blend colours, palettes or palette functions using common blend modes, such as multiply and screen.

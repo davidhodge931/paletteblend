@@ -6,16 +6,18 @@ Authors@R:
            comment = c(ORCID = "0000-0002-3868-7501"))
 Description: Blend colours and palettes.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
+URL: https://davidhodge931.github.io/paletteblend/
+BugReports: https://github.com/davidhodge931/paletteblend/issues
+Depends: 
+    R (>= 4.1.0)
 Imports: 
     ggplot2,
-    purrr,
-    rlang,
     scales
 Suggests: 
     dplyr,
     jumble,
     tidyr
-URL: https://davidhodge931.github.io/paletteblend/
+Encoding: UTF-8
+Language: en-GB
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
