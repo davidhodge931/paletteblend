@@ -1,12 +1,12 @@
 Package: paletteblend
 Title: Blend Colours and Palettes
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: 
     person("David", "Hodge", , "davidhodge931@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-3868-7501"))
 Description: Blend colours and palettes using blend modes such as multiply and screen.
 License: MIT + file LICENSE
-URL: https://davidhodge931.github.io/paletteblend/
+URL: https://github.com/davidhodge931/paletteblend, https://davidhodge931.github.io/paletteblend/
 BugReports: https://github.com/davidhodge931/paletteblend/issues
 Depends: 
     R (>= 4.1.0)

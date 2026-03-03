@@ -1,3 +1,3 @@
-# paletteblend 0.0.1
+# paletteblend 0.1.0
 
-* Initial release.
+* Initial CRAN release.
