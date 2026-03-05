@@ -61,18 +61,31 @@ blend_plot <- function(data, cols) {
   data |>
     tidyr::pivot_longer(-row, names_to = "name", values_to = "colour") |>
     dplyr::filter(name %in% cols) |>
-    dplyr::mutate(name = factor(name, levels = cols)) |>
+    dplyr::mutate(
+      name  = factor(name, levels = cols),
+      group = factor(
+        dplyr::if_else(name %in% c("col1", "col2"), "Input", "Blend Mode"),
+        levels = c("Input", "Blend Mode")
+      )
+    ) |>
     ggplot2::ggplot(ggplot2::aes(x = name, y = -row, fill = colour)) +
     ggplot2::geom_tile(width = 0.9, height = 0.9) +
     ggplot2::scale_fill_identity() +
     ggplot2::scale_x_discrete(position = "top") +
     ggplot2::scale_y_continuous(expand = c(0, 0)) +
+    ggplot2::facet_grid(
+      cols   = ggplot2::vars(group),
+      scales = "free_x",
+      space  = "free_x"
+    ) +
     ggplot2::theme_minimal() +
     ggplot2::theme(
-      axis.text.x  = ggplot2::element_text(size = 11),
-      axis.text.y  = ggplot2::element_blank(),
-      axis.title   = ggplot2::element_blank(),
-      panel.grid   = ggplot2::element_blank()
+      axis.text.x   = ggplot2::element_text(size = 11),
+      axis.text.y   = ggplot2::element_blank(),
+      axis.title    = ggplot2::element_blank(),
+      panel.grid    = ggplot2::element_blank(),
+      strip.text    = ggplot2::element_blank(),
+      panel.spacing = ggplot2::unit(12, "pt")
     )
 }
 ```

@@ -3,11 +3,11 @@
   if (length(dots) > 0 &&
       requireNamespace("ggplot2", quietly = TRUE) &&
       ggplot2::is_layer(dots[[1]])) {
-    stop("paletteblend cannot blend ggplot2 layers")
+    rlang::abort("paletteblend cannot blend ggplot2 layers")
   }
 
   if (length(dots) == 0) {
-    stop("At least one colour argument is required")
+    rlang::abort("At least one colour argument is required")
   } else if (length(dots) == 1) {
     col  <- dots[[1]]
     col2 <- col
@@ -15,11 +15,11 @@
     col  <- dots[[1]]
     col2 <- dots[[2]]
   } else {
-    stop("blend functions accept at most 2 colour/palette arguments, got ", length(dots))
+    rlang::abort("blend functions accept at most 2 colour/palette arguments")
   }
 
   if (is.null(col) || is.null(col2)) {
-    stop("colour/palette arguments cannot be NULL")
+    rlang::abort("colour/palette arguments cannot be NULL")
   }
 
   list(col = col, col2 = col2)
