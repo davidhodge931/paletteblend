@@ -11,11 +11,16 @@ colour_dodge(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
+\value{
+Character vector of blended colours or a blending function.
+}
 \description{
-Blend colours and palettes using colour dodge mode
+Brightens the destination colour to reflect the source by decreasing
+contrast. Produces bright, washed-out results.
 }
 \examples{
 colour_dodge("#FFA600FF", "#8991A1FF")

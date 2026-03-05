@@ -11,10 +11,11 @@ BugReports: https://github.com/davidhodge931/paletteblend/issues
 Depends: 
     R (>= 4.1.0)
 Imports: 
-    ggplot2,
+    rlang,
     scales
 Suggests: 
     dplyr,
+    ggplot2,
     jumble,
     testthat (>= 3.0.0),
     tidyr

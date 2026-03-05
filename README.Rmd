@@ -32,25 +32,51 @@ pak::pak("davidhodge931/ggwidth")
 
 ```{r setup, message=FALSE}
 library(paletteblend)
-library(dplyr)
 library(jumble)
-
-blended <- multiply(teal, orange)
-
-scales::show_col(c(teal, orange, blended), ncol = 3)
+scales::show_col(c(teal, orange, multiply(teal, orange)), ncol = 3)
 ```
 
-The below image provides the multiply output in column 4 and screen output in column 5 of columns 1 and 2.
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+plot_data <- tidyr::crossing(col1 = jumble::jumble, col2 = jumble::jumble) |>
+  dplyr::rowwise() |>
+  dplyr::mutate(
+    multiply     = paletteblend::multiply(col1, col2),
+    screen       = paletteblend::screen(col1, col2),
+    darken       = paletteblend::darken(col1, col2),
+    lighten      = paletteblend::lighten(col1, col2),
+    overlay      = paletteblend::overlay(col1, col2),
+    hard_light   = paletteblend::hard_light(col1, col2),
+    soft_light   = paletteblend::soft_light(col1, col2),
+    colour_burn  = paletteblend::colour_burn(col1, col2),
+    colour_dodge = paletteblend::colour_dodge(col1, col2),
+    difference   = paletteblend::difference(col1, col2),
+    exclusion    = paletteblend::exclusion(col1, col2)
+  ) |>
+  dplyr::ungroup() |>
+  dplyr::mutate(row = dplyr::row_number())
 
-```{r}
-tidyr::crossing(col1 = jumble::jumble, col2 = jumble::jumble) |>
-  rowwise() |>
-  mutate(black = "black") |>
-  mutate(multiply = paletteblend::multiply(col1, col2)) |>
-  mutate(screen = paletteblend::screen(col1, col2)) |>
-  ungroup() |> 
-  tidyr::pivot_longer(everything()) |> 
-  pull() |> 
-  scales::show_col(ncol = 5, labels = FALSE)
+blend_plot <- function(data, cols) {
+  data |>
+    tidyr::pivot_longer(-row, names_to = "name", values_to = "colour") |>
+    dplyr::filter(name %in% cols) |>
+    dplyr::mutate(name = factor(name, levels = cols)) |>
+    ggplot2::ggplot(ggplot2::aes(x = name, y = -row, fill = colour)) +
+    ggplot2::geom_tile(width = 0.9, height = 0.9) +
+    ggplot2::scale_fill_identity() +
+    ggplot2::scale_x_discrete(position = "top") +
+    ggplot2::scale_y_continuous(expand = c(0, 0)) +
+    ggplot2::theme_minimal() +
+    ggplot2::theme(
+      axis.text.x  = ggplot2::element_text(size = 11),
+      axis.text.y  = ggplot2::element_blank(),
+      axis.title   = ggplot2::element_blank(),
+      panel.grid   = ggplot2::element_blank()
+    )
+}
 ```
-
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 10}
+blend_plot(plot_data, c("col1", "col2", "multiply", "screen", "darken", "lighten"))
+```
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 10}
+blend_plot(plot_data, c("col1", "col2", "overlay", "hard_light", "soft_light", "colour_burn", "colour_dodge", "difference", "exclusion"))
+```

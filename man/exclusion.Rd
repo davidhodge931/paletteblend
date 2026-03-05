@@ -11,11 +11,16 @@ exclusion(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
+\value{
+Character vector of blended colours or a blending function.
+}
 \description{
-Blend colours and palettes using exclusion mode
+Similar to difference but with lower contrast. Identical colours produce
+grey rather than black.
 }
 \examples{
 exclusion("#FFA600FF", "#8991A1FF")

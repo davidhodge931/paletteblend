@@ -316,28 +316,20 @@ test_that("all blend modes stay within [0, 255] for extreme inputs", {
 # Error handling
 # ---------------------------------------------------------------------------
 
-test_that("blend() errors when blend argument is missing", {
-  expect_error(blend("steelblue", "tomato"), "`blend` is required")
-})
-
-test_that("blend() errors on invalid blend mode", {
-  expect_error(blend("steelblue", "tomato", blend = "dissolve"))
-})
-
-test_that("blend() errors with zero colour arguments", {
+test_that("blend errors with zero colour arguments", {
   expect_error(multiply(), "At least one colour argument is required")
 })
 
-test_that("blend() errors with more than two colour arguments", {
+test_that("blend errors with more than two colour arguments", {
   expect_error(multiply("steelblue", "tomato", "#FFA600FF"))
 })
 
-test_that("blend() errors with NULL inputs", {
+test_that("blend errors with NULL inputs", {
   expect_error(multiply(NULL, "steelblue"))
   expect_error(multiply("steelblue", NULL))
 })
 
-test_that("blend() errors when passed a ggplot2 layer", {
+test_that("blend errors when passed a ggplot2 layer", {
   layer <- ggplot2::annotate("text", x = 1, y = 1, label = "test")
   expect_error(multiply(layer, "steelblue"), "cannot blend ggplot2 layers")
 })

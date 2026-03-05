@@ -11,11 +11,16 @@ difference(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
+\value{
+Character vector of blended colours or a blending function.
+}
 \description{
-Blend colours and palettes using difference mode
+Subtracts the darker colour from the lighter. Identical colours produce
+black; white inverts the other colour.
 }
 \examples{
 difference("#FFA600FF", "#8991A1FF")

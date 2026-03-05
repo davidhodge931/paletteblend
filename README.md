@@ -24,29 +24,11 @@ pak::pak("davidhodge931/ggwidth")
 
 ``` r
 library(paletteblend)
-library(dplyr)
 library(jumble)
-
-blended <- multiply(teal, orange)
-
-scales::show_col(c(teal, orange, blended), ncol = 3)
+scales::show_col(c(teal, orange, multiply(teal, orange)), ncol = 3)
 ```
 
 <img src="man/figures/README-setup-1.png" alt="" width="100%" />
 
-The below image provides the multiply output in column 4 and screen
-output in column 5 of columns 1 and 2.
-
-``` r
-tidyr::crossing(col1 = jumble::jumble, col2 = jumble::jumble) |>
-  rowwise() |>
-  mutate(black = "black") |>
-  mutate(multiply = paletteblend::multiply(col1, col2)) |>
-  mutate(screen = paletteblend::screen(col1, col2)) |>
-  ungroup() |> 
-  tidyr::pivot_longer(everything()) |> 
-  pull() |> 
-  scales::show_col(ncol = 5, labels = FALSE)
-```
-
-<img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" alt="" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" alt="" width="100%" />

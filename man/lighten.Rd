@@ -11,18 +11,17 @@ lighten(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
 \value{
 Character vector of blended colours or a blending function.
 }
 \description{
-Lightens colours by selecting the lighter of two colour values for each RGB channel.
-Creates brighter results by preserving the lightest areas from both colours.
-Useful for creating highlights, preventing over-darkening, or combining light elements.
+Lightens colours by selecting the lighter of two colour values for each RGB
+channel. Useful for creating highlights or combining light elements.
 }
 \examples{
 lighten("#FFA600FF", "#8991A1FF")
-
 }

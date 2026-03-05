@@ -11,11 +11,16 @@ soft_light(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
+\value{
+Character vector of blended colours or a blending function.
+}
 \description{
-Blend colours and palettes using soft light mode
+A softer version of hard light. Darkens or lightens depending on the first
+colour, but with a gentler effect than hard light.
 }
 \examples{
 soft_light("#FFA600FF", "#8991A1FF")

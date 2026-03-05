@@ -11,11 +11,17 @@ overlay(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
+\value{
+Character vector of blended colours or a blending function.
+}
 \description{
-Blend colours and palettes using overlay mode
+Combines multiply and screen depending on the lightness of the second colour.
+Values below 50\% grey are multiplied (darkened); values above are screened
+(lightened).
 }
 \examples{
 overlay("#FFA600FF", "#8991A1FF")

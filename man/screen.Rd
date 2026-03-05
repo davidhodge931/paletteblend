@@ -11,20 +11,19 @@ screen(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
 \value{
 Character vector of blended colours or a blending function.
 }
 \description{
-Lightens colours by inverting, multiplying, then inverting again. Creates brighter results.
-Useful for creating highlights, lightening backgrounds, or adding luminosity.
+Lightens colours by inverting, multiplying, then inverting again. Creates
+brighter results. Useful for creating highlights, lightening backgrounds, or
+adding luminosity.
 }
 \examples{
-# Lighten a dark background
 screen("#2C2C2C", "#808080")
-
-# Self-blend to lighten
 screen("#4A4A4A")
 }

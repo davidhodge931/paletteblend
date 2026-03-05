@@ -11,20 +11,18 @@ multiply(...)
 \itemize{
 \item If one argument: the colour or palette is blended with itself
 \item If two arguments: the first is blended with the second
-Each argument can be a character vector of colours or a \verb{scales::pal_*()} function
+Each argument can be a character vector of colours or a \verb{scales::pal_*()}
+function
 }}
 }
 \value{
 Character vector of blended colours or a blending function.
 }
 \description{
-Darkens colours by multiplying them together. Creates darker, more saturated results.
-Useful for creating shadows, darkening backgrounds, or adding depth.
+Darkens colours by multiplying them together. Creates darker, more saturated
+results. Useful for creating shadows, darkening backgrounds, or adding depth.
 }
 \examples{
-# Darken a light background
 multiply("#F0F0F0", "#808080")
-
-# Self-blend to darken
 multiply("#FF6B6B")
 }
