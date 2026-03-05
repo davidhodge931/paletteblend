@@ -18,9 +18,11 @@ Install from CRAN, or development version from
 [GitHub](https://github.com/).
 
 ``` r
-install.packages("ggwidth") 
-pak::pak("davidhodge931/ggwidth")
+install.packages("paletteblend") 
+pak::pak("davidhodge931/paletteblend")
 ```
+
+## Example
 
 ``` r
 library(paletteblend)

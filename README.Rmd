@@ -26,9 +26,11 @@ The objective of paletteblend is to blend colours, palettes or palette functions
 Install from CRAN, or development version from [GitHub](https://github.com/).
 
 ```r
-install.packages("ggwidth") 
-pak::pak("davidhodge931/ggwidth")
+install.packages("paletteblend") 
+pak::pak("davidhodge931/paletteblend")
 ```
+
+## Example
 
 ```{r setup, message=FALSE}
 library(paletteblend)
